@@ -75,4 +75,11 @@ fun main() {
     counter *= 4 
     counter /= 3
     println(counter) 
+
+    // Substring
+    val pesan = "Kotlin itu Menyenangkan!"
+    println(pesan.subString(11, 23))
+    println(pesan.first()) // ambil karakter pertama string
+    println(pesan.last()) // ambil karakter terakhir string
+    println(pesan.dropLast(1)) // drop karakter sebanyak n parameter
 }
