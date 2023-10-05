@@ -1,12 +1,18 @@
 fun main () {
     val closedRange = 0 .. 5
+    // .. 0 1 2 3 4 5
     val openHalfRange = 0 until 5
-
+    // until 0 1 2 3 4
     val increasingRange = 0.rangeTo(5)
+    
     val decreasingRange = 5 downTo 0
+    
     val rangeWithStep = 0 .. 5 step 2
+    
     val decreasingRange2 = 5.downTo(0)
-
+    for(num in decreasingRange2){
+        println(num)
+    }
 
     val count = 10
     var sum = 0
@@ -22,8 +28,8 @@ fun main () {
         sum += lastSum
         lastSum = temp
     }
-    println(sum)
-    println(lastSum)
+    println("sum " + sum)
+    println("lastSum " + lastSum)
     // REPEAT 1 -> temp = 1, sum = 1, lastSum = 1
     // REPEAT 2 -> temp = 1, sum = 1+1=2, lastSum = 1
     // REPEAT 3 -> temp = 2, sum = 2+1=3, lastSum = 2
@@ -37,15 +43,17 @@ fun main () {
 
     sum = 0
     for (i in 1 .. count step 2) {
+        println(i)
         sum += i
     }
-    println(sum)
+    println("sum2 " + sum)
     
     sum = 0
     for (i in count downTo 1 step 2) {
+        println(i)
         sum += i
     }
-    println(sum)
+    println("sum3 " +sum)
   
 
     // label statements -> continue

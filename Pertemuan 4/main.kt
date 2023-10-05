@@ -17,7 +17,7 @@ fun main() {
     println(alsoTrue)
 
     val oneGreaterThenTwo = (1>2)
-    println(oneGreaterThenTwo)
+    println("onegreaterthantwo" + oneGreaterThenTwo)
 
     val oneLessThenTwo = (1<2)
     println(oneLessThenTwo)
@@ -40,9 +40,10 @@ fun main() {
 
     // String equality
     val dog = "dog"
-    val dogEqualCat = dog == "cat"
+    val dogEqualCat = dog == "dog"
+    println("dogequalcat" + dogEqualCat)
     val order = "cat" < "dog"
-    println(order)
+    println("order" + order)
 
     //ekspresi if
     if (2>1){
@@ -94,7 +95,7 @@ fun main() {
         "Invalid hour"
     }
 
-    println(hourOfDay)
+    println("hourofday " + hourOfDay)
 
     //Loop
     var sum = 1
@@ -102,7 +103,6 @@ fun main() {
         sum = sum +(sum + 1)
     }
     println(sum)
-
     //sebelum iterasi 1, sum = 1, condition = true
     //sebelum iterasi 1, sum = 3, condition = true
     //sebelum iterasi 2, sum = 7, condition = true
@@ -126,7 +126,9 @@ fun main() {
         sum = sum + (sum + 1)
     }
     println(sum) // 1
-
+    // beda while denagn do - while
+    // while akan melakukan pengecekan kode dahulu
+    // do while akan melakukan do terlebih dahulu baru pengecekan kode
     sum = 1
     do {
         sum = sum + (sum + 1)

@@ -43,8 +43,9 @@ fun main() {
     // Triple sama, namun bedanya pair menyimpan dua nilai triple tiga nilai
 
     // Any, Unit, Nothing
-    val anyNumber : Any = 42
-    val anyString : Any = "42"
+    var anyNumber : Any = 42
+    anyNumber = "hoho"
+    println(anyNumber)
 
     // Unit tidak mengembalikan nilai = method void pada java
 

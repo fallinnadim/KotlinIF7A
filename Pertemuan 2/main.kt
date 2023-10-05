@@ -78,8 +78,9 @@ fun main() {
 
     // Substring
     val pesan = "Kotlin itu Menyenangkan!"
-    println(pesan.subString(11, 23))
+    println(pesan.substring(11, 23))
     println(pesan.first()) // ambil karakter pertama string
     println(pesan.last()) // ambil karakter terakhir string
     println(pesan.dropLast(1)) // drop karakter sebanyak n parameter
+    println(pesan[0])
 }
