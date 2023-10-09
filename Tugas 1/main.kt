@@ -13,7 +13,8 @@ fun soal1() {
     println(age)
     age = 30
     println(age)
-    println("deklarasi variabel age menggunakan var karena pada block kode varible age yang sudah di deklarasi di re-assign dengan nilai 30")
+    println("""deklarasi variabel age menggunakan var karena pada 
+    block kode varible age yang sudah di deklarasi di re-assign dengan nilai 30""")
 }
 
 fun soal2() {
