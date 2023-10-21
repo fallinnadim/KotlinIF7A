@@ -72,4 +72,78 @@ fun main() {
    val proposalTA = Grade(letter = "A", points = 8.0, credits = 2.0)
    jane.recordGrade(proposalTA)
    println(jane.credits) // 9.0
+
+   val albert = Student(firstName = "Albert", lastName = "Einstein", id = 1)
+    val richard = Student(firstName = "Richard", lastName = "Feynman", id = 2)
+    val albertCopy = albert.copy(firstName = "Anton")
+
+    println(albert)
+    println(albertCopy)
+    println(richard)
+    println(albert.toString())
+
+    println(albert == richard) // false
+    println(albert == albertCopy) // true
+    println(albert === albertCopy) // false
+
+    // Data Class
+    // Class spesial yang memiliki fungsi HashCode, Equals, toString dan copy()
+    data class StudentData(var firstName: String,  var lastName: String, var id: Int)
+
+    val marie = StudentData("Marie", "Curie", 1)
+    val emmy = StudentData("Emmy", "Noether", 2)
+    val marieCopy = marie.copy()
+
+    println(marie)
+    println(emmy)
+    println(marie == emmy)
+    println(marie == marieCopy)
+    println(marie === marieCopy)
+
+    // Destructuring Declaration -> hanya untuk data class
+    val (firstName, lastName, id) = marie
+}
+
+class Students(var firstName: String,  var lastName: String, var id: Int) {
+    // override -> modifikasi method bawaan
+    override fun hashCode(): Int {
+        val prime = 31
+        var result = 1
+
+        result = prime * result + firstName.hashCode()
+        result = prime * result + id
+        result = prime * result + lastName.hashCode()
+        return result
+    }
+
+    override fun equals(other: Any?): Boolean {
+        // membandingkan reference
+        if (this === other)
+            return true
+        if (other == null)
+            return false
+
+        // membandingkan tipe class
+        if (javaClass != other.javaClass)
+            return false
+
+        // membandingkan nilai nya sama atau tidak
+        val obj = other as Student? // casting ke student, kalau berhasil ada nilai, gagal null
+        if (firstName != obj?.firstName)
+            return false
+        if (lastName != obj.lastName)
+            return false
+        if (id != obj.id)
+            return false
+
+        return true
+    }
+
+    override fun toString(): String {
+        return "Student(firstName= ${firstName}, lastName = ${lastName}, id = ${id}"
+   }
+
+    fun copy(firstName: String = this.firstName,
+             lastName: String = this.lastName,
+             id: Int = this.id) = Student(firstName, lastName, id)
 }
