@@ -1,7 +1,6 @@
 // prinsip design pattern singleton
 // memastikan hanya ada satu instansi pada suatu program
-
-data class Student(val id: Int, val firstName: String, val lastName: String) {
+data class Student (val id: Int, val firstName: String, val lastName: String) {
     var fullName = "${lastName}, ${firstName}"
 }
 
