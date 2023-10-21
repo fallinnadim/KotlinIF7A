@@ -55,6 +55,11 @@ object ScientistRepository {
 
 }
 
+interface Counts {
+    fun studentCount() : Int
+    fun scientistCount() : Int
+}
+
 fun main() {
     // Singletons
     // object
@@ -76,4 +81,16 @@ fun main() {
     ScientistRepository.addScientist(nick)
 
     ScientistRepository.listAllScientist()
+
+    val counter = object : Counts {
+        override fun studentCount(): Int {
+            return StudentRegistry.allStudents.size
+        }
+
+        override fun scientistCount(): Int {
+            return ScientistRepository.allScientist.size
+        }
+    }
+    println(counter.studentCount())
+    println(counter.scientistCount())
 }
