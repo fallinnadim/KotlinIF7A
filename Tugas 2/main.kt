@@ -33,11 +33,8 @@ fun soal2() {
             "FL" to "Florida", "GA" to "Georgia", "IN" to "Indiana", "KS" to "Kansas", "LA" to "Louisianna",
             "MN" to "Minnesota", "NH" to "New Hamsphere", "NY" to "New York", "OK" to "Oklahoma", "WI" to "Wisconsin",
             )
-    val filterResult = usStatesCode.filterValues { it.length > 8 } // Filter Value with condition
     println("List States di US dengan panjang nama lebih dari 8 karakter :")
-    for ((_, v) in filterResult) {
-        print("${v} ")
-    }
+    usStatesCode.forEach { if(it.value.length > 8) print("${it.value} ")}
     println("")
 }
 
@@ -52,7 +49,7 @@ fun soal3() {
         else it * faktorial(it - 1)
     }
     // Function Call
-    println(faktorial(5))
+    println("Hasil Faktorial adalah ${faktorial(5)}")
 }
 
 
