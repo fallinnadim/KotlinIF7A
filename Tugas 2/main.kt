@@ -40,15 +40,8 @@ fun soal2() {
 
 fun soal3() {
     println("================= Soal 3 =================")
-    // Define function body
-    lateinit var faktorial: (Int) -> Int //lateinit agar bisa inisialisasi variabel faktorian untuk rekursif
-    faktorial = { 
-        // Base Case
-        if (it <= 1) 1 
-        // rekursif
-        else it * faktorial(it - 1)
-    }
     // Function Call
+    val faktorial : (Int) -> Int = {(1..it).fold(1){ a,b -> a * b}}
     println("Hasil Faktorial adalah ${faktorial(5)}")
 }
 

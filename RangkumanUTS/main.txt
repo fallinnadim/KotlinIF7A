@@ -1,0 +1,117 @@
+// VARIABLE
+-- Declaring Variable and Constant
+{var / val} {variableName}: {DataType} = {InitialValue}
+-- Declaring Range
+var {variableName} = {firstValue} .. {lastValue}
+val sebuahRange = 1 .. 5   // 1, 2, 3, 4, 5
+*/---------------------------------------------------/*
+// FLOW CONTROL
+-- If-else
+if ({condition}){
+        // do something
+    } else {
+        // do something
+    }
+-- do-while
+do {
+    // do something
+    } while ({condition})
+-- when-statement
+when ({variable to check}) {
+    {check} -> // do something
+    .....
+    else -> {
+        // do something
+    }
+}
+-- for loop
+for ({(iterator) in collections}) { 
+    // do something
+}
+-- repeat
+repeat({n}) {
+        //do something
+    }
+*/---------------------------------------------------/*
+// Function
+-- Reguler Function
+fun {functionName}({argsName}: {argsDataType}, ...): {return DataType} {
+    return // something  (no return for Unit function)
+}
+-- Lambda Function
+val {variableName} = {{argsName}: {argsDataType} ->
+    // do somethink
+}
+-- Initialize body function
+var {variableName}:({argsDataType}, {argsDataType}) -> {return DataType}
+{variableName} = {{argsName}: {argsDataType}, {argsName}: {argsDataType} -> {return DataType}
+    // do somethink
+}
+-- Short function with 1 parameter
+val {variableName} : ({argsDataType}) -> {return DataType} = {it * it}
+*/---------------------------------------------------/*
+// Nullability
+-- Declaring Nullable Variable
+var {variableName}: {DataType}? 
+-- Not Null Assertion (!!) (hanya untuk variable dengan nilai selain null)
+var result: Int? = 17
+println(result!! + 1) // operasi aritmatika pada nullable Int = 18
+-- Null Checking
+--- Smart Cast
+Traditional if/else checking ({variable} != null)
+--- Safe Call (?.)
+{variableName}?.  // to check wether a variable value is NULL or NOT,
+if NULL then function chained after safe call operator will NOT be executed
+--- Let Function
+// to check wether a variable value is NULL or NOT, 
+if NULL then function inside let block will NOT be executed
+{variableName}?.let {
+    // do somethink
+}
+--- Elvis Operator (?:)
+// to assign a value IF the variable value is NULL
+var exampleVar : Int? = null
+var mustHaveResult = exampleVar ?: 13 // value = 13
+*/---------------------------------------------------/*
+// Collections
+-- Collections Function
+size() -> Integer // to check collection length
+isEmpty() -> Boolean // to check wether collection is empty or not
+contains({value}) -> Boolean // to check wether value exist inside collection
+-- Array
+-- List
+-- Map
+--- Declaring Read-Only Map, Once Map Initialized, the value cannot be changed
+var {variableName} = mapOf(
+        {key} to {value},
+        ...
+        )
+--- Declaring Mutable Map, the value can be changed
+var {variableName} = HashMap<String, Int>() // membuat map kosong baru dengan Key berjenis String dan Value Integer
+var {variableName} = mutableMapOf(
+    {key} to {value},
+    ....
+    )
+{variableName} = mutableMapOf() // mengosongkan map yang sudah dideklarasi
+--- Modify Value inside Mutable Map
+{variableName}.put({key}, {newValue}) // function put juga bisa digunakan untuk menambah key-value pair baru pada map
+--- Remove pair from Mutable Map
+{variableName}.remove({key})
+--- Iterating through Maps
+for ((k, v) in {variableName}) {      // underscore (_) can be used for variables thats never be used
+    // do somethink
+}
+-- Set -> collections of UNIQUE Values
+--- Declaring Read-Only Set, Once Set Initialized, the value cannot be changed
+var {variableName} = setOf({value}, {value2}, ...)
+--- Declaring Mutable Set, the value can be changed
+val {variableName} = HashSet<{DataType}>() 
+val {variableName} = mutableSetOf({value}, {value2}, ...) 
+--- Add and Remove elements inside set
+{variableName}.add({value})
+{variableName}.remove({value})
+--- operator in to check wether value inside a set, boolean return
+val bilBulatSet = mutableSetOf(1, 4, 5, 9)
+4 in bilBulatSet // true
+*/---------------------------------------------------/*
+// Class

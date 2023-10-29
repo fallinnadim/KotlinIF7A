@@ -30,6 +30,7 @@ fun main() {
     println((-10).abs())
     println(100.abs())
     println(MyMath.primeFactor(81))
+    println(MyMath.factorial(5))
     println(10.greaterValue(20))
 }
 
@@ -49,8 +50,7 @@ fun Int.abs(): Int =
 class MyMath {
     companion object {
         fun factorial(number: Int): Int {
-            return (1..number).fold(1){ a,b -> a + b
-            }
+            return (1..number).fold(1){ a,b -> a * b}
         }
     }
 }

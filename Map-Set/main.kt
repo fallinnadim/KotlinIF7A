@@ -12,9 +12,10 @@ fun main() {
     println(tahunKelahiran.get("Banana")) //nilai akan null apabila key tidak ditemukan
     var skorGame = mutableMapOf("Anna" to 2, "Brian" to 2) // bisa dirubah valuenya
     skorGame["Anna"] = 3
-    println(skorGame["Anna"])
+    println(skorGame)
 
-    skorGame = mutableMapOf() // membuat map kosong
+    skorGame = mutableMapOf() // mengosongkan map
+    println(skorGame)
     var pairs = HashMap<String, Int>() // membuat map kosong baru
     pairs = HashMap<String, Int>(1) // membuat map dengan kapasistas
     pairs["hoho"] = 1
@@ -28,6 +29,7 @@ fun main() {
     var bobData = mutableMapOf("name" to "Bob", "profession" to "CardPlatyer")
     // menmbah key dan value pada mutablemap
     bobData.put("NewKey", "hehe")
+    bobData.put("NewKey", "diubah lagi nih kak")
     bobData["NewKey2"] = "hehe"
     println(bobData)
 
@@ -52,7 +54,7 @@ fun main() {
     // Mutable set
     val bilBulatArray = arrayOf(1, 2, 3, 1)
     // Ubah array jadi set
-    val bilBulatSet = mutableSetOf(*bilBulatArray) // spread operator
+    val bilBulatSet = mutableSetOf(1, 4, 5, 9) // spread operator
     println(bilBulatSet)
 
     // menggunakan contains untuk mencari nilai pada set

@@ -30,12 +30,8 @@ fun main () {
     var nonNullableAuthor: String
     var nullableAuthor: String?
 
-    if (authorName != null) {
-        nonNullableAuthor = authorName
-    }
-    else {
-        nullableAuthor = authorName
-    }
+    if (authorName != null) nonNullableAuthor = authorName
+    else nullableAuthor = authorName
 
     // Safe Call
     // Operator ?. digunakan untuk mengecek apakah nilainya null atau tidak
@@ -44,15 +40,20 @@ fun main () {
     var nameLength = authorName?.length
     println("Author`s name has length ${nameLength} .")
 
+    authorName = "hehehe"
+    var nameLength2 = authorName?.equals("Takeo Ischi")
+    println("Author`s name has length ${nameLength2} .")
+
     var nameLengthPlus5 = authorName?.length?.plus(5)
 
     // let() function
     // let() function lebih fleksibel
     authorName?.let {
-        nonNullableAuthor = authorName
+        println("Gak null kak")
     }
 
     // Elvis Operator (?:)
-    var nullableInt : Int? = 10
+    var nullableInt : Int? = null
     var mustHaveResult = nullableInt ?: 13 // assign value dengan nilai 13, jika nilai variable nullableInt = null
+    print(mustHaveResult)
 }
