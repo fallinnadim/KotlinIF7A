@@ -6,7 +6,6 @@ data class Student (val id: Int, val firstName: String, val lastName: String) {
 
 object StudentRegistry {
     val allStudents = mutableListOf<Student>()
-
     fun addStudent(student: Student) {
         if (allStudents.contains(student))
             return

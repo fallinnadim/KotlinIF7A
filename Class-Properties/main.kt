@@ -10,7 +10,11 @@ class Contact2(var fullName: String, val emailAddress: String)
 class Contact3(var fullName: String, val emailAddress: String, var type: String = "Friend")
 
 class Person(val firstName: String, val lastName: String){
-    val fullName = "$firstName $lastName"
+    val age: Int = 20
+    val fullName: String
+        get() {
+            return "${firstName} + ${lastName}"
+        }
 }
 
 class Address {

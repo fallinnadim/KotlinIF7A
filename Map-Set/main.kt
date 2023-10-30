@@ -41,6 +41,10 @@ fun main() {
     // removing pairs
     bobData.remove("NewKey")
 
+    bobData.forEach { (key, value) ->
+        println("Data memiliki key ${key} dengan nilai ${value}")
+    }
+
     // for-in
     for ((k, v) in bobData) { // bisa menggunakan underscore (_) untuk variable yang tidak pakai
         println("Data memiliki key ${k} dengan nilai ${v}")

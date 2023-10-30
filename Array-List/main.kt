@@ -12,7 +12,9 @@ fun main() {
     val hurufVokal = arrayOf("a", "i", "u", "e", "o")
 
     val angkaGanjil = intArrayOf(1, 3, 5, 7) // array tipe primitif
-
+    println(angkaGanjil)
+    angkaGanjil[0] = 17
+    println(angkaGanjil)
     // IntArray -> Primitif
     // Array<Int> 
 
@@ -31,9 +33,10 @@ fun main() {
     val innerPlanetsArrayList = arrayListOf("Mercury", "Venus", "Earth", "Mars") // ArrayList<String>
 
     val x: List<String> = listOf() // inisialisasi list kosong
+    
 
     // val x = listOf<String>() // cara kedua
-
+    val asdf = mutableListOf<String>()
     val outerPlanets = mutableListOf("Jupiter", "Saturn", "Uranus", "Neptune") // nilainya bisa berubah
     // val outerPlanets = mutableListOf<String>()
 

@@ -55,7 +55,7 @@ val {variableName} : ({argsDataType}) -> {return DataType} = {it * it}
 var {variableName}: {DataType}? 
 -- Not Null Assertion (!!) (hanya untuk variable dengan nilai selain null)
 var result: Int? = 17
-println(result!! + 1) // operasi aritmatika pada nullable Int = 18
+result!! + 1 // operasi aritmatika pada nullable Int = 18
 -- Null Checking
 --- Smart Cast
 Traditional if/else checking ({variable} != null)
@@ -78,31 +78,64 @@ var mustHaveResult = exampleVar ?: 13 // value = 13
 size() -> Integer // to check collection length
 isEmpty() -> Boolean // to check wether collection is empty or not
 contains({value}) -> Boolean // to check wether value exist inside collection
+slice() -> untuk array dan list
+forEach
+
 -- Array
+--- Declaring Array, Array is Static means once declared the size of array cannot be changed
+var {variableName} = arrayOf({value}, {value2}, ...)  // array must have same DataType
+--- Iterating through Maps
+{variableName}.forEach { it -> 
+    // do somethink
+}
+for (it in {variableName}) {     
+    // do somethink
+}
+--- Get value inside Array
+{variableName}.get({index})
+
 -- List
+-- Declaring Read-Only List, Once List Initialized, the value cannot be changed
+var {variableName} = listOf({value}, ... )
+--- Declaring Mutable List, the value can be changed
+var {variableName} = listOf<String>() // membuat mutableList kosong baru dengan value string
+var {variableName} = mutableListOf({value}, ....)
+--- Get value inside List
+{variableName}.get({index})
+--- Modify Value inside Mutable List
+{variableName}.put({index}, {newValue}) // function put juga bisa digunakan untuk menambah value baru pada list
+--- Remove pair from Mutable Map
+{variableName}.removeAt({index})
+
 -- Map
---- Declaring Read-Only Map, Once Map Initialized, the value cannot be changed
+-- Declaring Read-Only Map
 var {variableName} = mapOf(
         {key} to {value},
         ...
         )
---- Declaring Mutable Map, the value can be changed
-var {variableName} = HashMap<String, Int>() // membuat map kosong baru dengan Key berjenis String dan Value Integer
+-- Declaring Mutable Map, the value can be changed
+var {variableName} = HashMap<String, Int>() 
 var {variableName} = mutableMapOf(
     {key} to {value},
-    ....
     )
-{variableName} = mutableMapOf() // mengosongkan map yang sudah dideklarasi
+{variableName} = mutableMapOf() // mengosongkan map
+--- Get value inside Map
+{variableName}.get({key})
 --- Modify Value inside Mutable Map
 {variableName}.put({key}, {newValue}) // function put juga bisa digunakan untuk menambah key-value pair baru pada map
 --- Remove pair from Mutable Map
 {variableName}.remove({key})
 --- Iterating through Maps
+{variableName}.forEach { (k, v) -> 
+    // do somethink
+}
 for ((k, v) in {variableName}) {      // underscore (_) can be used for variables thats never be used
     // do somethink
 }
+
 -- Set -> collections of UNIQUE Values
---- Declaring Read-Only Set, Once Set Initialized, the value cannot be changed
+--- Declaring Read-Only Set, Once Set Initialized, 
+--- the value cannot be changed
 var {variableName} = setOf({value}, {value2}, ...)
 --- Declaring Mutable Set, the value can be changed
 val {variableName} = HashSet<{DataType}>() 
@@ -115,3 +148,63 @@ val bilBulatSet = mutableSetOf(1, 4, 5, 9)
 4 in bilBulatSet // true
 */---------------------------------------------------/*
 // Class
+-- Data Class // special class with innate function 
+              // hashCode, equals, toString, componentN, copy
+data class {className}(var {propertiesName}: {DataType}, ...)
+-- Class and Properties
+--- Reguler Class Declaration With default args
+class {className}(var {propertiesName}: {DataType} = {defaultArgsValue}, ...)
+--- Class Properties and Function
+// Private Constructor
+private constructor & companinon object
+// Constructor properties are set upon instantiang the Class with their arguments
+// Some Class Properties are set in the Class Declaration
+class TV(var height: Double, var width: Double){
+    val yearProduction : Int
+    var diagonal: Int
+        get() {                         // val {someVariable} = {TV}.diagonal
+            val result = Math.sqrt(height * height + width * width)
+            return result.roundToInt()
+        }
+        set(value) {                    // {TV}.diagonal = {someValue}
+            val ratioWidth = 16.0
+            val ratioHeight = 9.0
+            val ratioDiagonal = Math.sqrt(ratioWidth * ratioWidth + ratioHeight * ratioHeight)
+            height = value * ratioHeight / ratioDiagonal
+            width = value * ratioWidth / ratioDiagonal
+        }
+    init {
+        yearProduction = 2023
+    }
+    companion object{
+        var brand = "Samsung"
+    }
+}
+--- Class Function
+Function or method owned by the class
+class Scientist private constructor(val id: Int, val firstName: String, val lastName: String) {
+    companion object {
+        var currentId = 0
+        fun newScientist(firstName: String, lastName: String): Scientist {
+            currentId += 1
+            return Scientist(currentId, firstName, lastName)
+        }
+    }
+    var fullName = "${firstName} ${lastName}"
+}
+-- Extension Method
+fun {className}.Companion.{newMethodNAme}({arguments}): {returnTypeIfAny} {
+    // do somethink
+}
+
+-- Object & Companion Object
+// object adalah class yang bisa diakses tanpa harus di instansiasi
+// Companion Object adalah OBject yang ekskulsif hanya ada didalam class
+--- Object Declaration
+object {objectName} {
+    val {someProperties} = {someValue} // properties of object
+    fun {someFunction}({arguments}) { // function of object
+        // do somethink
+    }
+}
+--- Object Identity using (===)   // Boolean
