@@ -27,7 +27,7 @@ fun main() {
 class KotlinCaller {
     companion object {
         fun callFromJava () {
-            JavaIntertop.printMessage()
+            JavaInterop.printMessage()
         }
     }
 }
